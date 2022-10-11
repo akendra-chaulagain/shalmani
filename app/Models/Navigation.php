@@ -45,12 +45,22 @@ class Navigation extends Model
 
     public function childs()
     {
-        return $this->hasMany('App\Models\Navigation','parent_page_id','id')->where('page_type','!=','Job')->where('page_type','!=','Notice')->where('page_type', '!=', 'Destination')->where('page_type', '!=', 'Recruitment')->where('page_status','1')->orderBy('position','ASC');
+        return $this->hasMany('App\Models\Navigation','parent_page_id','id')->where('page_type','!=','Job')->where('page_type','!=','Notice')->where('page_type', '!=', 'Recruitment')->where('page_type', '!=', 'Destination')->where('page_status','1')->orderBy('position','ASC');
     }
     public function child_data()
     {
         return $this->hasMany('App\Models\Navigation', 'parent_page_id', 'id')->where('page_type', '!=', 'Job')->where('page_type', '!=', 'Notice')->where('page_status', '1')->orderBy('position', 'ASC');
     }
+
+    // destinationdata
+    public function destination_data()
+    {
+        return $this->hasMany('App\Models\Navigation', 'parent_page_id', 'id')->where('page_type', '!=', 'Job')->where('page_type', '!=', 'Notice')->where('page_status', '1')->orderBy('position', 'ASC');
+    }
+
+
+
+
 
     public function parents()
     {

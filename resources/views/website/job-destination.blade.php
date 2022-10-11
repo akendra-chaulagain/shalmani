@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @push('title')
-    Jobs
+   {{ $slug_detail->caption ?? '' }}
 @endpush
 
 @section('content')

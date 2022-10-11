@@ -236,7 +236,8 @@ class HomeController extends Controller
 
         } elseif ($category_type == "Destination") {
             $slug_detail = Navigation::find($category_id);
-            $destination_data = $slug_detail->childs;
+            $destination_data = $slug_detail->destination_data;
+            // return $slug_detail;
 
 
 
