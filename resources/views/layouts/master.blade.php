@@ -16,6 +16,26 @@ if (isset($normal)) {
     $seo = $job;
 }
 
+
+
+
+$footer = App\Models\Navigation::query()
+    ->where('nav_category', 'Main')
+    ->where('page_type', '!=', 'Job')
+    ->where('page_type', '!=', 'Photo Gallery')
+    ->where('page_type', '!=', 'Notice')
+    ->where('parent_page_id', 0)
+    ->where('page_status', '1')
+    ->orderBy('position', 'ASC')
+    ->get();
+if (isset($normal)) {
+    $seo = $normal;
+} elseif (isset($job)) {
+    $seo = $job;
+}
+
+
+
 $notice = App\Models\Navigation::query()
     ->where('nav_category', 'Main')
     ->where('page_type', '=', 'Notice')
@@ -42,16 +62,41 @@ if (isset($normal)) {
 <html class="no-js" lang="en-us">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Shalmani Overseas Pvt. Ltd.</title>
-    <meta name="description" content="Shalmani Overseas Pvt. Ltd." />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+    {{-- <title>नेपाल-खुद्रा-व्यापार-संघ</title> --}}
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="Shalmani Overseas" />
-    <meta property="og:type" content="homepage" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
 
+    <!-----SEO--------->
+
+    <title> @stack('title') | {{ $seo->page_titile ?? $global_setting->page_title }}</title>
+    <meta name="title" content="{{ $seo->page_titile ?? $global_setting->page_title }}">
+    <meta name="description" content="{{ $seo->page_description ?? $global_setting->page_description }}">
+    <meta name="keywords" content="{{ $seo->page_keyword ?? $global_setting->page_keyword }}">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="1 days">
+    <meta name="author" content="{{ $global_setting->site_name ?? '' }}">
+
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ $global_setting->website_full_address ?? '' }}">
+    <meta property="og:title" content="{{ $seo->page_title ?? $global_setting->page_title }}">
+    <meta property="og:description" content="{{ $seo->page_description ?? $global_setting->page_description }}">
+    <meta property="og:image" content="{{ $seo->banner_image ?? '/uploads/icons/' . $global_setting->site_logo }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ $global_setting->website_full_address ?? '' }}">
+    <meta property="twitter:title" content="{{ $seo->page_title ?? $global_setting->page_title }}">
+    <meta property="twitter:description" content="{{ $seo->page_description ?? $global_setting->page_description }}">
+    <meta property="twitter:image"
+        content="{{ $seo->banner_image ?? '/uploads/icons/' . $global_setting->site_logo }}">
+
+ <link rel="icon" type="image/x-icon" href="{{ '/uploads/icons/' . $global_setting->site_logo }}" />
     <link rel="manifest" href="/website/site.webmanifest" />
     <link rel="apple-touch-icon" href="apple-icon.png" />
     <!-- Place favicon.ico in the root directory -->
@@ -82,7 +127,7 @@ if (isset($normal)) {
             class="flex flex-wrap md:justify-between justify-center items-center px-4 mx-auto w-full md:max-w-full lg:max-w-full md:px-24 lg:px-36 py-1 bg-blue-800">
             <div class="flex-wrap inline-flex px-4 py-1 space-x-1">
                 <p class="font-semibold text-white hover:text-gray-200 cursor-pointer">
-                    Govt. License No: 828/066/067
+                    Govt. License No: {{ $global_setting->phone_ne }}
                 </p>
             </div>
             <div class="flex-wrap inline-flex px-4 py-1 space-x-1 md:space-x-4">
@@ -95,7 +140,12 @@ if (isset($normal)) {
                                 d="M21 16.42v3.536a1 1 0 0 1-.93.998c-.437.03-.794.046-1.07.046-8.837 0-16-7.163-16-16 0-.276.015-.633.046-1.07A1 1 0 0 1 4.044 3H7.58a.5.5 0 0 1 .498.45c.023.23.044.413.064.552A13.901 13.901 0 0 0 9.35 8.003c.095.2.033.439-.147.567l-2.158 1.542a13.047 13.047 0 0 0 6.844 6.844l1.54-2.154a.462.462 0 0 1 .573-.149 13.901 13.901 0 0 0 4 1.205c.139.02.322.042.55.064a.5.5 0 0 1 .449.498z">
                             </path>
                         </svg></span>
-                    <span class="hidden md:block">+977-0000000</span>
+                    <span class="hidden md:block">
+                       
+                        {{ $global_setting->phone }}
+
+                    
+                    </span>
                 </a>
                 <a href="#"
                     class="group hover:text-gray-300 cursor-pointer inline-flex items-center text-sm text-white">
@@ -106,7 +156,7 @@ if (isset($normal)) {
                                 d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm9.06 8.683L5.648 6.238 4.353 7.762l7.72 6.555 7.581-6.56-1.308-1.513-6.285 5.439z">
                             </path>
                         </svg></span>
-                    <span class="hidden md:block">info@company.com</span>
+                    <span class="hidden md:block">{{ $global_setting->site_email }}</span>
                 </a>
             </div>
         </div>
@@ -119,7 +169,8 @@ if (isset($normal)) {
             <div class="flex flex-row items-center justify-between">
                 <a href="/"
                     class="text-lg font-bold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">
-                    <img class="w-20 h-20" src="./img/logo/SO-Logo.svg" alt="Shalmani Overseas" /></a>
+                  <img src="/uploads/icons/{{ $global_setting->site_logo }}"
+                                        alt="_logo" title="" /></a>
                 <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
                     <!-- HAMBURGER BUTTON -->
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -131,27 +182,7 @@ if (isset($normal)) {
                 </button>
             </div>
 
-            {{-- @foreach ($menus as $menu)
-                @php $submenus = $menu->childs; @endphp
-                <li class="dropdown" @if (isset($slug_detail) && $slug_detail->nav_name == $menu->nav_name)  @endif>
-                    
-                    <a class="dropdown-toggle" role="button"
-                        aria-haspopup="true" aria-expanded="false"
-                        @if ($submenus->count() > 0) href="{{ route('category', $menu->nav_name) }}" @else href="{{ route('category', $menu->nav_name) }}" @endif>{{ $menu->caption }}</a>
-
-
-                    <i class="ddl-switch fa fa-angle-down"></i>
-                    @if ($submenus->count() > 0)
-                        <ul class="dropdown-menu">
-                            @foreach ($submenus as $sub)
-                                <li><a
-                                        href="{{ route('subcategory', [$menu->nav_name, $sub->nav_name]) }}">{{ $sub->caption }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    @endif
-                </li>
-            @endforeach --}}
+            
 
 
 
@@ -170,6 +201,8 @@ if (isset($normal)) {
                                 <span>{{ $menu->caption }}</span>
 
                             </a> --}}
+
+                           
 
                             <a href="#" aria-haspopup="true" aria-expanded="false">{{ $menu->caption }}</a>
 
@@ -239,6 +272,142 @@ if (isset($normal)) {
 
 
 
+      <footer class="w-full dark-mode:text-gray-200 dark-mode:bg-gray-800 py-4 lg:py-6 bg-blue-800">
+    <div class="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+      <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
+        <div class="md:max-w-md lg:col-span-2">
+          <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
+            <img src="/uploads/icons/{{ $global_setting->site_logo }}" class="w-16" />
+            {{-- <span class="ml-2 text-xl font-bold tracking-wide text-white uppercase">Shalmani Overseas</span> --}}
+          </a>
+          <div class="mt-4 lg:max-w-sm">
+            <p class="text-sm text-white leading-6">
+               {{ $global_setting->page_description }}
+            </p>
+           
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
+          <div>
+            <p class="font-bold tracking-wide text-white">Company</p>
+            <ul class="mt-2 space-y-2">
+              {{-- <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Home</a>
+              </li>
+              <li>
+                <a href="/company/aboutus" class="text-white transition-colors duration-300 hover:text-blue-400">About Us</a>
+              </li>
+                <li>
+                <a href="/recruitment-process" class="text-white transition-colors duration-300 hover:text-blue-400">Recruitment Process</a>
+              </li> --}}
+
+              @foreach ($menus as $key => $menu)
+                                        @if ($key == 10)
+                                        @break
+
+                                        ;
+                                    @endif
+                                    <li>
+                                       <a  href="{{ route('category', $menu->nav_name) }}" class="text-white transition-colors duration-300 hover:text-blue-400">{{ $menu->caption }}</a>
+                                     
+                                    </li>
+                                @endforeach
+              
+             
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold tracking-wide text-white">Quick Links</p>
+            <ul class="mt-2 space-y-2">
+              <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Career Advice</a>
+              </li>
+              <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Countries</a>
+              </li>
+              <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Business</a>
+              </li>
+              <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Job Recruitment</a>
+              </li>
+            </ul>
+          </div>
+          {{-- <div>
+            <p class="font-bold tracking-wide text-white">Support</p>
+            <ul class="mt-2 space-y-2">
+              <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Contact</a>
+              </li>
+              <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Enquiry</a>
+              </li>
+              <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Privacy policy</a>
+              </li>
+              <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Terms & Conditions</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold tracking-wide text-white">Our Network</p>
+            <ul class="mt-2 space-y-2">
+              <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Partners</a>
+              </li>
+              <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Clients</a>
+              </li>
+              <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Wiki</a>
+              </li>
+              <li>
+                <a href="/" class="text-white transition-colors duration-300 hover:text-blue-400">Forum</a>
+              </li>
+            </ul>
+          </div> --}}
+        </div>
+      </div>
+      <div class="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">
+        <p class="text-sm text-white">
+          © Copyright
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          <span class="font-semibold">Shalmani Overseas Pvt. Ltd.</span> All
+          rights reserved.
+        </p>
+        <div class="flex items-center mt-4 space-x-4 sm:mt-0">
+          <a target="_blank" href="{{ $global_setting->twitter ?? '#' }}" class="text-gray-100 transition-colors duration-300 hover:text-blue-400">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+              <path
+                d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z">
+              </path>
+            </svg>
+          </a>
+          <a target="_blank"  href="{{ $global_setting->linkedin ?? '#' }}" class="text-gray-100 transition-colors duration-300 hover:text-blue-400">
+            <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">
+              <circle cx="15" cy="15" r="4"></circle>
+              <path
+                d="M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z">
+              </path>
+            </svg>
+          </a>
+          <a target="_blank" href="{{ $global_setting->facebook ?? '#' }}" class="text-gray-100 transition-colors duration-300 hover:text-blue-400">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+              <path
+                d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z">
+              </path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="/website/js/vendor/modernizr-3.11.2.min.js"></script>
@@ -272,8 +441,35 @@ if (isset($normal)) {
         ga("set", "transport", "beacon");
         ga("send", "pageview");
     </script>
+
+
     <script>
-        $('.owl-carousel').owlCarousel({
+        $('.owl-testomonials').owlCarousel({
+            loop: true,
+            autoplay: true,
+            items: 1,
+            nav: false,
+            dots: true,
+            autoplayHoverPause: true,
+            animateOut: 'slideOutUp',
+            animateIn: 'slideInUp',
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        })
+    </script>
+
+
+    <script>
+        $('.client-slider').owlCarousel({
             loop: true,
             margin: 50,
             nav: false,
@@ -281,6 +477,8 @@ if (isset($normal)) {
             autoplay: true,
             autoplayTimeout: 2000,
             autoplayHoverPause: false,
+            // animateOut: 'slideOutUp',
+            // animateIn: 'slideInUp'
             responsive: {
                 0: {
                     items: 1
@@ -294,6 +492,10 @@ if (isset($normal)) {
             }
         })
     </script>
+
+
+
+
     <script src="/website/js/lightbox.js"></script>
 
     <script src="https://www.google-analytics.com/analytics.js" async></script>

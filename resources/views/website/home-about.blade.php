@@ -12,7 +12,7 @@
                     </p>
                 </div>
                 <div>
-                    <a href="/" aria-label=""
+                    <a href="/company/aboutus" aria-label=""
                         class="inline-flex items-center font-semibold transition-colors duration-200 text-blue-400 hover:text-blue-800">
                         Learn more
                         <svg class="inline-block w-3 ml-2" fill="currentColor" viewBox="0 0 12 12">

@@ -9,56 +9,6 @@
 
   
 
-    {{-- <section class="main-contact-area ptb-100">
-        <div class="container">
-
-            <form action="{{ route('contactstore') }}" method="POST" autocomplete="on" enctype='multipart/form-data'>
-                @csrf
-                <div class="contact_usFormTitle">
-                    <h2>Drop Us A Message For Any Query.</h2>
-                </div>
-
-             
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <input type="text" name="name" required placeholder="Your Name">
-
-                        </div>
-                    </div>
-
-                    
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <input type="email" name="email" required placeholder="Your Email">
-
-                        </div>
-                    </div>
-
-                    
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="form-group">
-                            <input type="number" name="number" required placeholder="Your Phone">
-
-                        </div>
-                    </div>
-
-
-
-                    
-                    <div class="col-lg-12 col-md-12">
-                        <div class="form-group">
-                            <textarea name="message" cols="30" rows="10" required placeholder="Your Message"></textarea>
-
-                        </div>
-                    </div>
-
-                    <div class="send-message-boxs">
-                        <button>Send Message</button>
-                    </div>
-            </form>
-        </div>
-    </section> --}}
 
 
 
@@ -263,10 +213,5 @@
     
 
 
-    <div class="map-area">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3531.259529530363!2d85.32578481546629!3d27.740140030655994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1937a2fa88e9%3A0x13ccc33dc1d77276!2sGreen%20Star%20Overseas%20Pvt.%20Ltd.!5e0!3m2!1sen!2snp!4v1661422756859!5m2!1sen!2snp"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+    
 @endsection

@@ -433,6 +433,10 @@ template {
   font-size: 32px;
   font-weight: 700;
 }
+.normal_caption span{
+  color: orange;
+  font-weight: 600;
+}
 
 
 

@@ -1,3 +1,17 @@
+ 
+ {{-- @php
+
+
+$recruitment_chid = App\Models\Navigation::find($recruitment->parent_page_id);
+   
+
+
+
+@endphp --}}
+
+ 
+ 
+ 
  @extends('layouts.master')
 
  @push('title')

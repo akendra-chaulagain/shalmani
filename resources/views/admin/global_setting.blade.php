@@ -41,7 +41,7 @@
                            value="{{$global_setting->phone}}">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="phone_ne">Site Contact Nepali</label>
+                    <label for="phone_ne">Govt. License No</label>
                     <input type="text" id="phone_ne" name="phone_ne" class="form-control"
                            placeholder="Site Contact Number Nepali" value="{{$global_setting->phone_ne}}">
                 </div>
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="LinkedIn">LinkedIn url</label>
+                    <label for="LinkedIn">Instagram url</label>
                     <input type="text" id="LinkedIn" name="linkedin" class="form-control"
                            placeholder="LinkedIn" value="{{$global_setting->linkedin}}">
                 </div>
