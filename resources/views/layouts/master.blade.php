@@ -27,6 +27,7 @@ $footer = App\Models\Navigation::query()
 
 // jobs footer
 $footer_jobs = App\Models\Navigation::find(2471)->childs;
+$footer_company = App\Models\Navigation::find(2259)->childs;
 
 @endphp
 
@@ -264,60 +265,13 @@ $footer_jobs = App\Models\Navigation::find(2471)->childs;
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
+
                     <div>
-                        <p class="font-bold tracking-wide text-white">Company</p>
-                        <ul class="mt-2 space-y-2">
-
-                            <li>
-                                <a href="/"
-                                    class="text-white transition-colors duration-300 hover:text-blue-400">Home</a>
-
-                            </li>
-
-                             <li>
-                                <a href="/company/aboutus"
-                                    class="text-white transition-colors duration-300 hover:text-blue-400">About</a>
-
-                            </li>
-                            <li>
-                                <a href="/contact"
-                                    class="text-white transition-colors duration-300 hover:text-blue-400">Contact</a>
-
-                            </li>
-                          
-
-                      
-
-
-                    </ul>
-                </div>
-                <div>
-                    <p class="font-bold tracking-wide text-white">Quick Links</p>
-                    <ul class="mt-2 space-y-2">
-                        <li>
-                            <a href="/destination"
-                                class="text-white transition-colors duration-300 hover:text-blue-400">Destination</a>
-                        </li>
-                        <li>
-                            <a href="/gallery/photo-gallery"
-                                class="text-white transition-colors duration-300 hover:text-blue-400">Image Gallery</a>
-                        </li>
-                        <li>
-                            <a href="/gallery/video-gallery"
-                                class="text-white transition-colors duration-300 hover:text-blue-400">Video Gallery</a>
-                        </li>
-                       
-                    </ul>
-                </div>
-
-
-                {{-- jobs category --}}
-                <div>
                     <p class="font-bold tracking-wide text-white">Jobs Category</p>
                     <ul class="mt-2 space-y-2">
 
                         @foreach ($footer_jobs as $key => $menu)
-                            @if ($key == 3)
+                            @if ($key == 4)
                             @break
 
                             ;
@@ -332,29 +286,70 @@ $footer_jobs = App\Models\Navigation::find(2471)->childs;
 
 
 
+
                 </ul>
             </div>
-            {{-- <div>
-                    <p class="font-bold tracking-wide text-white">Our Network</p>
-                    <ul class="mt-2 space-y-2">
-                        <li>
-                            <a href="/"
-                                class="text-white transition-colors duration-300 hover:text-blue-400">Partners</a>
-                        </li>
-                        <li>
-                            <a href="/"
-                                class="text-white transition-colors duration-300 hover:text-blue-400">Clients</a>
-                        </li>
-                        <li>
-                            <a href="/"
-                                class="text-white transition-colors duration-300 hover:text-blue-400">Wiki</a>
-                        </li>
-                        <li>
-                            <a href="/"
-                                class="text-white transition-colors duration-300 hover:text-blue-400">Forum</a>
-                        </li>
+
+                    <div>
+                        <p class="font-bold tracking-wide text-white">Company</p>
+                        <ul class="mt-2 space-y-2">
+
+                            <li>
+                                <a href="/"
+                                    class="text-white transition-colors duration-300 hover:text-blue-400">Home</a>
+
+                            </li>
+                            @foreach ($footer_company as $key => $menu)
+                                @if ($key == 4)
+                                @break
+
+                                ;
+                            @endif
+
+                            <li>
+                                <a href="/job/{{ $menu->nav_name }}"
+                                    class="text-white transition-colors duration-300 hover:text-blue-400">{{ $menu->caption }}</a>
+
+                            </li>
+                        @endforeach
+
+
+
+
                     </ul>
-                </div> --}}
+                </div>
+
+
+
+                {{-- jobs category --}}
+                
+
+
+            <div>
+                <p class="font-bold tracking-wide text-white">Quick Links</p>
+                <ul class="mt-2 space-y-2">
+
+                    <li>
+                        <a href="/gallery/photo-gallery"
+                            class="text-white transition-colors duration-300 hover:text-blue-400">Image
+                            Gallery</a>
+                    </li>
+                    <li>
+                        <a href="/gallery/video-gallery"
+                            class="text-white transition-colors duration-300 hover:text-blue-400">Video
+                            Gallery</a>
+                    </li>
+                    <li>
+                        <a href="/contact"
+                            class="text-white transition-colors duration-300 hover:text-blue-400">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+
+
         </div>
     </div>
     <div class="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">
