@@ -1,7 +1,7 @@
 <section class="px-4 py-24 mx-auto max-w-7xl">
     <h1 class="mb-3 text-3xl font-bold leading-tight text-center text-gray-900 md:text-4xl">
         {{ $notice_heading->caption }}
-        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, culpa?</h1>
+        
     </h1>
     <h2 class="mb-12 text-sm tracking-wide text-center text-gray-800 uppercase">
         {!! $notice_heading->short_content !!}
