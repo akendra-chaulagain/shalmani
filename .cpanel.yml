@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/greenstarcom/public_html/
+    - export DEPLOYPATH=/home1/demoradiantnepal/salmani.demo.demo.radiantnepal.com/
     - /bin/cp -r * $DEPLOYPATH
