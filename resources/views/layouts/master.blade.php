@@ -307,7 +307,7 @@ $footer_company = App\Models\Navigation::find(2259)->childs;
                             @endif
 
                             <li>
-                                <a href="/job/{{ $menu->nav_name }}"
+                                <a href="/company/{{ $menu->nav_name }}"
                                     class="text-white transition-colors duration-300 hover:text-blue-400">{{ $menu->caption }}</a>
 
                             </li>
