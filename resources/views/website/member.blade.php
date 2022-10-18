@@ -15,29 +15,82 @@ $destination = App\Models\Navigation::find($slug_detail->id);
 @endpush
 
 @section('content')
-   <section>
-         <div class="relative bg-gray-600 bg-no-repeat bg-center bg-cover bg-blend-overlay"
-             style="
+    <section>
+        <div class="relative bg-gray-600 bg-no-repeat bg-center bg-cover bg-blend-overlay"
+            style="
           background-image: url('https://images.pexels.com/photos/37646/new-york-skyline-new-york-city-city-37646.jpeg?cs=srgb&dl=pexels-pixabay-37646.jpg&fm=jpg');
         ">
-             <div class="absolute inset-0">
-                 <div class="absolute inset-0 bg-black-900" aria-hidden="true"></div>
-             </div>
-             <div class="relative max-w-7xl mx-auto py-28 px-4 sm:py-28 sm:px-6 lg:px-8">
-                 <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-3xl lg:text-4xl">
-                      {{ $normal->caption }}
-                 </h1>
-             </div>
-         </div>
-     </section>
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-black-900" aria-hidden="true"></div>
+            </div>
+            <div class="relative max-w-7xl mx-auto py-28 px-4 sm:py-28 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-3xl lg:text-4xl">
+                    {{ $normal->caption }}
+                </h1>
+            </div>
+        </div>
+    </section>
     <!-- ..........................................job-detaile.................... -->
 
-
-    <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat itaque minus molestias autem cum odit? Eaque dicta
-        accusamus, ipsa sunt porro ut distinctio eos numquam fuga quaerat. Tenetur incidunt nobis impedit officia natus,
-        recusandae et a magni, temporibus, aliquam id laborum! Minus provident assumenda, recusandae placeat tenetur magnam
-        nemo aperiam maxime pariatur, repellendus praesentium debitis at, dolore ab! Quidem doloremque id nam reprehenderit
-        blanditiis quas quia, natus adipisci ratione est et recusandae voluptates consequuntur distinctio saepe cum fugit
-        rerum, veniam sapiente iusto ipsa, porro iure? Doloribus nulla rem quasi iusto consequatur numquam unde alias
-        debitis totam nisi cumque, placeat laborum.</h1>
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+            <div>
+                <p
+                    class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-blue-900 uppercase rounded-full bg-teal-accent-400">
+                    Team
+                </p>
+            </div>
+            <h2
+                class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+                <span class="relative inline-block">
+                    <span class="relative">Meet</span>
+                </span>
+                our talented professionals
+            </h2>
+            <p class="text-base text-gray-700 md:text-lg">
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque rem aperiam, eaque ipsa quae.
+            </p>
+        </div>
+        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            @foreach ($member as $member_item)
+                <div>
+                <div
+                    class="relative overflow-hidden transition duration-300 transform rounded shadow-lg lg:hover:-translate-y-2 hover:shadow-2xl">
+                    <img class="object-cover w-full h-56 md:h-64 xl:h-80"
+                        src="{{ $member_item->banner_image }}"
+                        alt="Person" />
+                    <div
+                        class="absolute inset-0 flex flex-col justify-center px-5 py-4 text-center transition-opacity duration-300 bg-black bg-opacity-75 opacity-0 hover:opacity-100">
+                        <p class="mb-1 text-lg font-bold text-gray-100">
+                            {{ $member_item->caption }}
+                        </p>
+                        <p class="mb-4 text-xs text-gray-100">{!! $member_item->short_content !!}</p>
+                        <p class="mb-4 text-xs tracking-wide text-gray-400">
+                            {!! $member_item->long_content !!}
+                        </p>
+                        {{-- <div class="flex items-center justify-center space-x-3">
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path
+                                        d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a href="/" class="text-white transition-colors duration-300 hover:text-teal-accent-400">
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                    <path
+                                        d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            
+           
+        </div>
+    </div>
 @endsection
