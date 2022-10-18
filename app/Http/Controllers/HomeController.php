@@ -403,7 +403,12 @@ class HomeController extends Controller
             // return $normal;
             return view("website.normal")->with(["partners" => $partners, 'message' => $message, 'normal' => $normal, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail]);
 
-        } elseif ($subcategory_type == "Group") {
+        } elseif ($subcategory_type == "Member") {
+            //return "return to job else";
+            return view("website.member")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail]);
+        } 
+        
+        elseif ($subcategory_type == "Group") {
             //return "return to job else";
             return view("website.job-list")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail]);
         } 
