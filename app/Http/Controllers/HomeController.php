@@ -405,7 +405,9 @@ class HomeController extends Controller
 
         } elseif ($subcategory_type == "Member") {
             //return "return to job else";
-            return view("website.member")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail]);
+            $normal = Navigation::find($subcategory_id);
+            $member = $normal->childs;
+            return view("website.member")->with(["partners" => $partners, "member" => $member, "normal" => $normal, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail]);
         } 
         
         elseif ($subcategory_type == "Group") {

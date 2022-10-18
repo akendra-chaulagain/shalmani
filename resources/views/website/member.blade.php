@@ -15,21 +15,21 @@ $destination = App\Models\Navigation::find($slug_detail->id);
 @endpush
 
 @section('content')
-    <section>
-        <div class="relative bg-gray-600 bg-no-repeat bg-center bg-cover bg-blend-overlay"
-            style="
+   <section>
+         <div class="relative bg-gray-600 bg-no-repeat bg-center bg-cover bg-blend-overlay"
+             style="
           background-image: url('https://images.pexels.com/photos/37646/new-york-skyline-new-york-city-city-37646.jpeg?cs=srgb&dl=pexels-pixabay-37646.jpg&fm=jpg');
         ">
-            <div class="absolute inset-0">
-                <div class="absolute inset-0 bg-black-900" aria-hidden="true"></div>
-            </div>
-            <div class="relative max-w-7xl mx-auto py-28 px-4 sm:py-28 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-3xl lg:text-4xl">
-                    {{-- {{ $slug_detail->caption ?? 'All Jobs' }} --}}
-                </h1>
-            </div>
-        </div>
-    </section>
+             <div class="absolute inset-0">
+                 <div class="absolute inset-0 bg-black-900" aria-hidden="true"></div>
+             </div>
+             <div class="relative max-w-7xl mx-auto py-28 px-4 sm:py-28 sm:px-6 lg:px-8">
+                 <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-3xl lg:text-4xl">
+                      {{ $normal->caption }}
+                 </h1>
+             </div>
+         </div>
+     </section>
     <!-- ..........................................job-detaile.................... -->
 
 
