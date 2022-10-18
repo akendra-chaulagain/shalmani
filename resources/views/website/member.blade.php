@@ -11,7 +11,7 @@ $destination = App\Models\Navigation::find($slug_detail->id);
 @extends('layouts.master')
 
 @push('title')
-    Jobs
+  {{ $normal->caption }}
 @endpush
 
 @section('content')
@@ -37,19 +37,16 @@ $destination = App\Models\Navigation::find($slug_detail->id);
             <div>
                 <p
                     class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-blue-900 uppercase rounded-full bg-teal-accent-400">
-                    Team
+                    {{ $normal->caption }}
                 </p>
             </div>
             <h2
                 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-                <span class="relative inline-block">
-                    <span class="relative">Meet</span>
-                </span>
-                our talented professionals
+               
+              {!! $normal->short_content !!}
             </h2>
             <p class="text-base text-gray-700 md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque rem aperiam, eaque ipsa quae.
+               {!! $normal->long_content !!}
             </p>
         </div>
         <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
