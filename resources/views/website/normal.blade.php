@@ -68,9 +68,9 @@
                  @else
                      <div class="w-full lg:w-2/2 xl:w-12/12 px-4">
                          <div class="mt-10 lg:mt-0 normal_caption">
-                             <span class="font-semibold text-lg text-primary mb-2 block" style="margin-top: 10px color:;">
+                             {{-- <span class="font-semibold text-lg text-primary mb-2 block" style="margin-top: 10px color:;">
                                  {{ $normal->caption }}
-                             </span>
+                             </span> --}}
                              <h2 class="font-bold text-3xl sm:text-4xl text-dark mb-8   "
                                  style="font-size: 34px font-weight: 700;">
                                  {!! $normal->short_content !!}
