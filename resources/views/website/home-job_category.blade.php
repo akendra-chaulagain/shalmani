@@ -1,4 +1,6 @@
-
+@php
+    $job_categories = App\Models\Navigation::find(2471)->childs;
+@endphp
 
 <section class="text-gray-600 body-font">
     <div class="container px-4 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
