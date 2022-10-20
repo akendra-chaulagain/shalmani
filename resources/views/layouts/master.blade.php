@@ -198,7 +198,7 @@ $footer_company = App\Models\Navigation::find(2259)->childs;
                                 <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
 
                                     @foreach ($submenus as $sub)
-                                        <div class="flex-wrap inline-flex ">
+                                        <div class=" inline-flex ">
                                             <a href="#"
                                                 class="group hover:text-gray-300 cursor-pointer inline-flex items-center text-sm text-white">
                                                 <span
