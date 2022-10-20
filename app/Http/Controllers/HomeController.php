@@ -115,7 +115,7 @@ class HomeController extends Controller
             $process = null;
         }
         //return $misson;
-        $job_categories = Navigation::all()->where('nav_category', 'Main')->where('page_type', 'Group')->where('banner_image', '!=', null)->take(4);
+        $job_categories = Navigation::all()->where('nav_category', 'Main')->where('page_type', 'Group')->where('banner_image', '!=', null)->take(6);
         //sreturn $job_categories;
         $global_setting = GlobalSetting::all()->first();
         //return $missons;       
