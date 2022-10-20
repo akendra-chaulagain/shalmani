@@ -14,7 +14,7 @@
             @foreach ($job_categories as $cat)
                 <div class="lg:w-1/3 sm:w-1/2 p-4">
                     <div class="flex relative">
-                        <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center"
+                        <img alt="gallery" class="absolute inset-0 w-full  object-cover object-center"
                             src="{{ $cat->banner_image }}" />
                         <div
                             class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white text-center opacity-0 hover:opacity-100 transition-all ease-in-out cursor-pointer duration-300">
