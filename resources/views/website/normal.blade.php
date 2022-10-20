@@ -62,9 +62,9 @@
                              style="font-size: 34px font-weight: 700;">
                              {!! $normal->short_content !!}
                          </h2>
-                         <p class="text-base text-body-color mb-8">
+                         {{-- <p class="text-base text-body-color mb-8"> --}}
                              {!! $normal->long_content !!}
-                         </p>
+                         {{-- </p> --}}
                      </div>
                  </div>
               @else
@@ -77,9 +77,9 @@
                              style="font-size: 34px font-weight: 700;">
                              {!! $normal->short_content !!}
                          </h2>
-                         <p class="text-base text-body-color mb-8">
+                         {{-- <p class="text-base text-body-color mb-8"> --}}
                              {!! $normal->long_content !!}
-                         </p>
+                         {{-- </p> --}}
                      </div>
                  </div>
                   
