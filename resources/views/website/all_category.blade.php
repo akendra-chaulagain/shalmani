@@ -1,7 +1,7 @@
  @extends('layouts.master')
 
  @push('title')
-     {{-- {{ $normal->caption }} --}}
+     {{ $normal->caption }}
  @endpush
 
  @section('content')
@@ -10,7 +10,7 @@
          style="background-image:   linear-gradient(
                   rgba(27, 40, 92, 0.7),
                   rgba(28, 35, 61, 0.7)
-                ) ,url('https://images.pexels.com/photos/1181401/pexels-photo-1181401.jpeg?auto=compress&cs=tinysrgb&w=1600')">
+                ) ,url('/uploads/featured_image/{{ $normal->featured_image }}')">
          <div class="auto-container">
              <div class="title-box">
                  <h1>Jobs Category</h1>

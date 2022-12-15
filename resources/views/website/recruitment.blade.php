@@ -1,13 +1,3 @@
- 
- {{-- @php
-
-
-$recruitment_chid = App\Models\Navigation::find($recruitment->parent_page_id);
-   
-
-
-
-@endphp --}}
 
  
  
@@ -22,7 +12,7 @@ $recruitment_chid = App\Models\Navigation::find($recruitment->parent_page_id);
      <section>
          <div class="relative bg-gray-600 bg-no-repeat bg-center bg-cover bg-blend-overlay"
              style="
-          background-image: url('https://images.pexels.com/photos/37646/new-york-skyline-new-york-city-city-37646.jpeg?cs=srgb&dl=pexels-pixabay-37646.jpg&fm=jpg');
+          background-image: url('/uploads/featured_image/{{ $recruitment->featured_image }}');
         ">
              <div class="absolute inset-0">
                  <div class="absolute inset-0 bg-black-900" aria-hidden="true"></div>

@@ -52,9 +52,9 @@
                  <div class="flex flex-wrap -m-4">
                      @foreach ($doc_single->childs as $item)
                          <div class="lg:w-1/3 sm:w-1/2 p-4">
-                             <div class="flex flex-wrap justify-between items-center -mx-4">
+                             <div class="flex flex-wrap justify-between items-center -mx-4 doc_image">
                                  <a href="{{ route('doc_details', $item->nav_name) }}">
-                                     <img src="{{ $item->banner_image }}" alt="">
+                                     <img style="width: 100%" src="{{ $item->banner_image }}" alt="" >
                                  </a>
 
                              </div>
