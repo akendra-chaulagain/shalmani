@@ -1,6 +1,6 @@
-@php
-    $all_doc = App\Models\Navigation::find(2546)->childs;
-@endphp
+{{-- @php
+    $all_doc = App\Models\Navigation::all()->where("nav_name","all-document")->childs;
+@endphp --}}
 
 
 <section>

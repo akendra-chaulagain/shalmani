@@ -48,6 +48,16 @@ class HomeController extends Controller
         }
 
         // services
+        if (Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%all-document%")->where('page_type', 'Group')->latest()->first() != null) {
+            $about_id = Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%all-document%")->where('page_type', 'Group')->latest()->first()->id;
+            $all_doc = Navigation::query()->where('parent_page_id', $about_id)->get();
+            // return $all_doc;
+            $notice_heading = Navigation::find($about_id);
+        } else {
+            $all_doc = null;
+        }
+
+
         if (Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%services%")->where('page_type', 'Group')->latest()->first() != null) {
             $about_id = Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%services%")->where('page_type', 'Group')->latest()->first()->id;
             $services = Navigation::query()->where('parent_page_id', $about_id)->get();
@@ -55,17 +65,7 @@ class HomeController extends Controller
         } else {
             $services = null;
         }
-
-        // services
-        // if (Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%job-destination%")->where('page_type', 'Group')->latest()->first() != null) {
-        //     $about_id = Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%job-destination%")->where('page_type', 'Group')->latest()->first()->id;
-        //     $job_destination = Navigation::query()->where('parent_page_id', $about_id)->paginate(3);
-        //     $job_destination_heading = Navigation::find($about_id);
-
-        // } else {
-        //     $job_destination = null;
-        // }
-
+     
 
         if (Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type', 'Group')->latest()->first() != null) {
             $partners_id = Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type', 'Group')->latest()->first()->id;
@@ -125,7 +125,7 @@ class HomeController extends Controller
         //sreturn $job_categories;
         $global_setting = GlobalSetting::all()->first();
         //return $missons;       
-        return view("website.index")->with(['testimonial' => $testimonial, 'statistics' => $statistics, 'partners' => $partners, 'jobs' => $jobs, 'banners' => $banners, 'about' => $About, 'menus' => $menus, 'global_setting' => $global_setting, 'sliders' => $sliders, 'missons' => $missons,  'message' => $message, 'process' => $process, 'services' => $services, 'job_destination' => $job_destination, 'notice_heading' => $notice_heading,]);
+        return view("website.index")->with(['testimonial' => $testimonial, 'statistics' => $statistics, 'partners' => $partners, 'jobs' => $jobs, 'banners' => $banners, 'about' => $About, 'menus' => $menus, 'global_setting' => $global_setting, 'sliders' => $sliders, 'missons' => $missons,  'message' => $message, 'process' => $process, 'services' => $services, 'job_destination' => $job_destination, 'notice_heading' => $notice_heading, 'all_doc'=> $all_doc]);
     }
 
 
