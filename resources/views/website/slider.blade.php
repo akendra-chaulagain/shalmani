@@ -1,45 +1,42 @@
+<section class="swiper mySwiper w-full h-px">
+    <div class="swiper-wrapper">
 
-
-
-    <section class="swiper mySwiper w-full h-px">
-        <div class="swiper-wrapper">
-
-            @foreach ($sliders as $slider)
-                <div class="swiper-slide bg-no-repeat bg-center object-cover w-full"
-                    style="background-image: url({{ $slider->banner_image }})">
-                    <div class="flex flex-col mb-16 sm:text-center sm:mb-0">
-                        <div class="w-full max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-                            <h2
-                                class="max-w-lg mb-6 font-sans text-3xl font-extrabold leading-none tracking-tight text-white sm:text-5xl md:mx-auto">
-                                <span class="relative inline-block">
-                                    <span class="relative uppercase animate__fadeInUp">{{ $slider->caption }}
-                            </h2>
-                            <p style="color: #fff">
-                               {!! $slider->short_content !!}
-                            </p>
-                        </div>
-                        
+        @foreach ($sliders as $slider)
+            <div class="swiper-slide bg-no-repeat bg-center object-cover w-full"
+                style="background-image: url({{ $slider->banner_image }})">
+                <div class="flex flex-col mb-16 sm:text-center sm:mb-0">
+                    <div class="w-full max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+                        <h2
+                            class="max-w-lg mb-6 font-sans text-3xl font-extrabold leading-none tracking-tight text-white sm:text-5xl md:mx-auto">
+                            <span class="relative inline-block">
+                                <span class="relative uppercase animate__fadeInUp">{{ $slider->caption }}
+                        </h2>
+                        <p style="color: #fff">
+                            {!! $slider->short_content !!}
+                        </p>
                     </div>
+
                 </div>
-            @endforeach
+            </div>
+        @endforeach
 
 
 
 
-        </div>
-        <div class="swiper-button-next py-7 px-7 bg-white rounded-full"></div>
-        <div class="swiper-button-prev py-7 px-7 bg-white rounded-full"></div>
-        <div class="swiper-pagination"></div>
-    </section>
+    </div>
+    <div class="swiper-button-next py-7 px-7 bg-white rounded-full"></div>
+    <div class="swiper-button-prev py-7 px-7 bg-white rounded-full"></div>
+    <div class="swiper-pagination"></div>
+</section>
 
 
-       <div class="relative px-4 sm:px-0 md:-mt-10 z-10">
+ <div class="relative px-4 sm:px-0 md:-mt-16 z-10">
       <div class="absolute inset-0 h-1/2"></div>
       <div
-        class="relative grid mx-auto overflow-hidden bg-white divide-y rounded shadow sm:max-w-screen-sm sm:grid-cols-3 lg:max-w-screen-md"
+        class="relative grid mx-auto overflow-hidden bg-white divide-y rounded shadow sm:max-w-screen-sm sm:grid-cols-3 lg:max-w-screen-sm"
       >
         <div
-          class="inline-block p-8 text-center hover:scale-110 transition-all transform ease-in-out duration-300 cursor-pointer bg-blue-600"
+          class="inline-block p-4 text-center hover:scale-110 transition-all transform ease-in-out duration-300 cursor-pointer bg-blue-600"
         >
           <div
             class="flex items-center justify-center w-12 h-12 mx-auto mb-4 rounded-full bg-blue-50"
@@ -61,7 +58,7 @@
           <p class="font-bold tracking-wide text-white">Trusted</p>
         </div>
         <div
-          class="inline-block p-8 text-center hover:scale-110 transform transition-all ease-in-out duration-300 cursor-pointer bg-blue-400"
+          class="inline-block p-4 text-center hover:scale-110 transform transition-all ease-in-out duration-300 cursor-pointer bg-blue-400"
         >
           <div
             class="flex items-center justify-center w-12 h-12 mx-auto mb-4 rounded-full bg-blue-50"
@@ -83,7 +80,7 @@
           <p class="font-bold tracking-wide text-white">Free Counselling</p>
         </div>
         <div
-          class="inline-block p-8 text-center hover:scale-110 transition-all ease-in-out duration-300 cursor-pointer"
+          class="inline-block p-4 text-center hover:scale-110 transition-all ease-in-out duration-300 cursor-pointer"
         >
           <div
             class="flex items-center justify-center w-12 h-12 mx-auto mb-4 rounded-full bg-blue-50"

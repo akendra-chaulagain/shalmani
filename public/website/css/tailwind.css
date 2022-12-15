@@ -77,11 +77,10 @@
   background: #4da5ec;
   width: 100px;
   transition-delay: 0s;
-
-  @media screen and (max-width: 576px) {
+}
+  @media  screen and (max-width: 576px) {
     width: 70px;
   }
-}
 
 .img-gallery {
   object-fit: cover;
@@ -110,20 +109,36 @@
   width: 100vw !important;
   z-index: 999;
 }
-
-
-.about_box h2{
-  font-size: 30px;
-  font-weight: 600;
-  line-height: 43px;
-  margin-bottom: 10px;
+.side-menu{
+  background: #ffffff;
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-
-
-.about_box h1{
-  font-size: 22px;
+.side-menu ul li{
+  padding: 10px 20px;
+  border-bottom: 1px solid rgb(233 233 233);
+}
+.side-menu ul li.has-submenu{
+  padding: 10px 0;
+}
+.side-menu ul li.has-submenu a{
+  padding: 0 20px;
+}
+.side-menu ul li.has-submenu ul li a{
+  padding: 0;
+}
+.side-menu ul li a{
+  font-size: 14px;
+  line-height: 22px;
   font-weight: 600;
-  margin-bottom: 10px;
-  color: orange;
-  
+  color: #363636;
+}
+.side-menu ul li a:hover{
+  --tw-text-opacity: 1;
+  color: rgb(251 146 60 / var(--tw-text-opacity));
+}
+.side-menu ul li ul li{
+  padding: 5px 20px;
+  border-bottom: 0;
 }

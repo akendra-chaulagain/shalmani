@@ -1,34 +1,34 @@
 @php
-$global_setting = App\Models\GlobalSetting::all()->first();
-
-$menus = App\Models\Navigation::query()
-    ->where('nav_category', 'Main')
-    ->where('page_type', '!=', 'Job')
-    ->where('page_type', '!=', 'Photo Gallery')
-    ->where('page_type', '!=', 'Notice')
-    ->where('parent_page_id', 0)
-    ->where('page_status', '1')
-    ->orderBy('position', 'ASC')
-    ->get();
-if (isset($normal)) {
-    $seo = $normal;
-} elseif (isset($job)) {
-    $seo = $job;
-}
-
-$footer = App\Models\Navigation::query()
-    ->where('nav_category', 'Main')
-    ->where('parent_page_id', '!=', 0)
-    ->where('page_type', '!=', 'Job')
-
-    // ->where('page_status', '1')
-    ->orderBy('position', 'ASC')
-    ->get();
-
-// jobs footer
-$footer_jobs = App\Models\Navigation::find(2471)->childs;
-$footer_company = App\Models\Navigation::find(2259)->childs;
-
+    $global_setting = App\Models\GlobalSetting::all()->first();
+    
+    $menus = App\Models\Navigation::query()
+        ->where('nav_category', 'Main')
+        ->where('page_type', '!=', 'Job')
+        ->where('page_type', '!=', 'Photo Gallery')
+        ->where('page_type', '!=', 'Notice')
+        ->where('parent_page_id', 0)
+        ->where('page_status', '1')
+        ->orderBy('position', 'ASC')
+        ->get();
+    if (isset($normal)) {
+        $seo = $normal;
+    } elseif (isset($job)) {
+        $seo = $job;
+    }
+    
+    $footer = App\Models\Navigation::query()
+        ->where('nav_category', 'Main')
+        ->where('parent_page_id', '!=', 0)
+        ->where('page_type', '!=', 'Job')
+    
+        // ->where('page_status', '1')
+        ->orderBy('position', 'ASC')
+        ->get();
+    
+    // jobs footer
+    $footer_jobs = App\Models\Navigation::find(2471)->childs->take(3);
+    $footer_company = App\Models\Navigation::find(2259)->childs->take(2);
+    
 @endphp
 
 
@@ -91,6 +91,9 @@ $footer_company = App\Models\Navigation::find(2259)->childs;
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <!--LINEICONS -->
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <meta name="theme-color" content="#fafafa" />
 </head>
@@ -185,7 +188,7 @@ $footer_company = App\Models\Navigation::find(2259)->childs;
 
                         </button>
 
-                        
+
 
                         @if ($submenus->count() > 0)
                             <div x-show="open" x-transition:enter="transition ease-out duration-100"
@@ -269,39 +272,10 @@ $footer_company = App\Models\Navigation::find(2259)->childs;
                 <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
 
                     <div>
-                    <p class="font-bold tracking-wide text-white">Jobs Category</p>
-                    <ul class="mt-2 space-y-2">
-
-                        @foreach ($footer_jobs as $key => $menu)
-                            @if ($key == 4)
-                            @break
-
-                            ;
-                        @endif
-
-                        <li>
-                            <a href="/job/{{ $menu->nav_name }}"
-                                class="text-white transition-colors duration-300 hover:text-blue-400">{{ $menu->caption }}</a>
-
-                        </li>
-                    @endforeach
-
-
-
-
-                </ul>
-            </div>
-
-                    <div>
-                        <p class="font-bold tracking-wide text-white">Company</p>
+                        <p class="font-bold tracking-wide text-white">Jobs Category</p>
                         <ul class="mt-2 space-y-2">
 
-                            <li>
-                                <a href="/"
-                                    class="text-white transition-colors duration-300 hover:text-blue-400">Home</a>
-
-                            </li>
-                            @foreach ($footer_company as $key => $menu)
+                            @foreach ($footer_jobs as $key => $menu)
                                 @if ($key == 4)
                                 @break
 
@@ -309,7 +283,7 @@ $footer_company = App\Models\Navigation::find(2259)->childs;
                             @endif
 
                             <li>
-                                <a href="/company/{{ $menu->nav_name }}"
+                                <a href="/job/{{ $menu->nav_name }}"
                                     class="text-white transition-colors duration-300 hover:text-blue-400">{{ $menu->caption }}</a>
 
                             </li>
@@ -321,10 +295,39 @@ $footer_company = App\Models\Navigation::find(2259)->childs;
                     </ul>
                 </div>
 
+                <div>
+                    <p class="font-bold tracking-wide text-white">Company</p>
+                    <ul class="mt-2 space-y-2">
+
+                        <li>
+                            <a href="/"
+                                class="text-white transition-colors duration-300 hover:text-blue-400">Home</a>
+
+                        </li>
+                        @foreach ($footer_company as $key => $menu)
+                            @if ($key == 4)
+                            @break
+
+                            ;
+                        @endif
+
+                        <li>
+                            <a href="/company/{{ $menu->nav_name }}"
+                                class="text-white transition-colors duration-300 hover:text-blue-400">{{ $menu->caption }}</a>
+
+                        </li>
+                    @endforeach
 
 
-                {{-- jobs category --}}
-                
+
+
+                </ul>
+            </div>
+
+
+
+            {{-- jobs category --}}
+
 
 
             <div>
@@ -347,6 +350,22 @@ $footer_company = App\Models\Navigation::find(2259)->childs;
                     </li>
 
                 </ul>
+            </div>
+            @php
+                $Download_dat = App\Models\Navigation::all()
+                    ->where('page_type', 'Brochure')
+                    ->first();
+            @endphp
+            <div>
+                <a target="_blank" href="{{ route('pdf', $Download_dat->nav_name) }}"
+                    class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded-full shadow-md bg-blue-600 hover:bg-blue-800 focus:shadow-outline focus:outline-none"
+                    style="font-size: 14px;">
+                    Downlaod Brochure
+                    {{-- <iframe
+                        src="/uploads/main_attachment/{{ $Download_dat->file }}{{ $Download_dat->main_attachment }}"
+                        allowfullscreen width="100%" height="1000px"></iframe> --}}
+
+                </a>
             </div>
 
 
@@ -388,6 +407,10 @@ $footer_company = App\Models\Navigation::find(2259)->childs;
                         d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z">
                     </path>
                 </svg>
+            </a>
+            <a href="{{ $global_setting->other ?? '#' }}">
+                <i target="_blank" class="fa-brands fa-youtube" style="color: white; font-size:23px"></i>
+
             </a>
         </div>
     </div>

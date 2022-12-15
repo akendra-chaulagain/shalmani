@@ -1,5 +1,5 @@
 @php
-    $job_categories = App\Models\Navigation::find(2471)->childs;
+    $job_categories = App\Models\Navigation::find(2471)->childs->take(6);
 @endphp
 
 <section class="text-gray-600 body-font">
@@ -25,7 +25,7 @@
                               {{ $cat->short_content ?? " "}}
                             </p>
                             <a class="text-blue-700 font-bold inline-flex items-center md:mb-2 lg:mb-0 py-2"
-                                href="/{{ $cat->nav_name }}">View Job
+                                href="/job/{{ $cat->nav_name }}">View Job
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                     <path d="M5 12h14M12 5l7 7-7 7"></path>
