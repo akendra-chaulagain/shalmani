@@ -39,6 +39,9 @@ font-weight: 600;
   color: black;
 }
 
+.services_container{
+  height: 120px;
+}
 @media only screen and (max-width: 768px) {
   .mision_section{
    padding: 100px 0px 100px 0px;
@@ -46,6 +49,30 @@ font-weight: 600;
  .col_data_info{
       margin-bottom: 39px;
  }
+ .services_container{
+  height: auto;
+ }
+
+ .col_data_info h1{
+  font-size: 28px;
+  
+ }
+.col_data_info p{
+  
+  font-size: 15px;
+
+}
+.col_data_info button{
+
+padding:  7px 20px 7px 20px;
+margin-top: 25px;
+font-size: 15px;
+
+
+}
+
+
+
 }
 
 .apply_button{
