@@ -1,26 +1,25 @@
-/* .header_esction{
- background-image:linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)),url(../header-bg.jpg);
-  background-attachment: fixed;
-  background-size: cover;
-  clip-path: ellipse(100% 100% at 100% 20%);
-} */
 
 .mision_section{
   padding: 100px 150px 100px 150px;
-  background-color: #1E40AF;
+  /* background-color: #1E40AF; */
   display: flex;
   justify-content: space-around;
   /* width: 100%; */
   overflow: hidden;
 } 
+
 .home_all{
   overflow: hidden;
+
 }
 
 
 .col_data_info{
-padding: 0px 20px 0px 20px;
-  /* overflow: hidden; */
+padding: 10px 20px 10px 20px;
+ box-shadow: 3px 1px 14px -3px rgba(185, 184, 184, 0.83);
+
+  margin: 0px 10px;
+  border-radius: 6px;
 }
 
 .mision_section h1{
@@ -29,11 +28,11 @@ padding: 0px 20px 0px 20px;
   justify-content: center;
   font-weight: 700;
   margin-bottom: 25px;
-  color: white;
+  color: #111827;
 }
 .col_data_info p{
   text-align: justify;
-  color: white;
+  color: black;
   font-size: 16px;
 
 }
@@ -43,32 +42,36 @@ color: white;
 border:  1px solid white;
 padding:  8px 23px 8px 23px;
 margin-top: 25px;
-border-radius: 10px;
+border-radius: 6px;
 font-size: 16px;
 font-weight: 600;
+background-color: #1D4ED8;
 
-}
-.col_data_info button:hover{
-  background-color: white;
-  color: black;
 }
 
 .services_container{
   height: 120px;
 }
 
-
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 990px) {
   .mision_section{
     width: 100%;
     display: block;
     overflow: hidden;
+    
   }
+  .col_data_info{
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+
   .mision_section{
    padding: 100px 0px 100px 0px;
   }
  .col_data_info{
-      margin-bottom: 39px;
+      margin-bottom: 20px;
  }
  .services_container{
   height: auto;
