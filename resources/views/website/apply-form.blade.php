@@ -6,9 +6,6 @@
  @endpush
 
  @section('content')
-  
-
-
      <section>
          <div class="relative bg-gray-600 bg-no-repeat bg-center bg-cover bg-blend-overlay"
              style="
@@ -25,8 +22,8 @@
          </div>
      </section>
 
-
-     <section class="bg-white py-20 lg:py-[30px] overflow-hidden relative">
+<div class="applyForm">
+  <section class="w-full bg-white py-20 lg:py-[30px] overflow-hidden relative">
          <div class="px-4 py-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
              <div class=" apply-form flex flex-wrap lg:justify-content-center -mx-4">
                  <div class="w-full lg:w-1/2 xl:w-5/12 px-4">
@@ -83,7 +80,8 @@
                              </div>
                              <div class="mb-6">
                                  <input type="text" name="apply_for" placeholder="Position"
-                                     class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"  value="{{ $job_detail->caption ?? '' }}"/>
+                                     class="w-full rounded py-3 px-[14px] text-body-color text-base border border-[f0f0f0] outline-none focus-visible:shadow-none focus:border-primary"
+                                     value="{{ $job_detail->caption ?? '' }}" />
                                  <span class="text-danger" style="color: red">
                                      @error('apply_for')
                                          {{ $message }}
@@ -118,4 +116,6 @@
              </div>
          </div>
      </section>
+</div>
+   
  @endsection

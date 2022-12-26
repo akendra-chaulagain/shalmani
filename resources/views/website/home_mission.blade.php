@@ -10,7 +10,7 @@
     @foreach ($home_mission as $item)
         <div class="col_data_info">
             <h1>{{ $item->caption }}</h1>
-            <p> {!! Str::limit($item->long_content, 200) !!}</p>
+            <p> {!! Str::limit($item->long_content, 180) !!}</p>
             <button>
                 <a href="/company/{{ $item->nav_name }}">Load More</a>
             </button>

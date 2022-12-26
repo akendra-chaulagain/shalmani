@@ -1,7 +1,7 @@
 
 .mision_section{
   padding: 100px 150px 100px 150px;
-  /* background-color: #1E40AF; */
+  background-color: #1E40AF;
   display: flex;
   justify-content: space-around;
   /* width: 100%; */
@@ -15,11 +15,12 @@
 
 
 .col_data_info{
-padding: 10px 20px 10px 20px;
+padding: 20px 20px 20px 20px;
  box-shadow: 3px 1px 14px -3px rgba(185, 184, 184, 0.83);
 
   margin: 0px 10px;
   border-radius: 6px;
+  background-color:#fff ;
 }
 
 .mision_section h1{
@@ -28,13 +29,12 @@ padding: 10px 20px 10px 20px;
   justify-content: center;
   font-weight: 700;
   margin-bottom: 25px;
-  color: #111827;
+  color: black;
 }
 .col_data_info p{
   text-align: justify;
   color: black;
   font-size: 16px;
-
 }
 .col_data_info button{
 display: flex;
@@ -45,12 +45,17 @@ margin-top: 25px;
 border-radius: 6px;
 font-size: 16px;
 font-weight: 600;
-background-color: #1D4ED8;
-
+background-color: #1E40AF;
 }
 
 .services_container{
   height: 120px;
+}
+
+.applyForm{
+  /* display: flex;
+  justify-content: center; */
+  margin-left: 33.33%;
 }
 
 @media only screen and (max-width: 990px) {
@@ -59,6 +64,10 @@ background-color: #1D4ED8;
     display: block;
     overflow: hidden;
     
+  }
+  .applyForm{
+  margin-left:0%;
+
   }
   .col_data_info{
     margin-bottom: 20px;
