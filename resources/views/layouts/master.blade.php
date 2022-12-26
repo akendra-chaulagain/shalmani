@@ -79,11 +79,13 @@
     <link rel="stylesheet" href="/website/css/normalize.css" />
     <link rel="stylesheet" href="/website/css/tailwind.css" />
     <link rel="stylesheet" href="/website/css/style.css" />
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> --}}
+
 
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
 
     <!-- Animate Css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -100,6 +102,8 @@
 </head>
 
 <body>
+
+    <div class="home_all">
 
 
 
@@ -153,6 +157,7 @@
             </div>
         </div>
     </section>
+
 
 
     <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 sticky top-30 z-20">
@@ -380,6 +385,7 @@
 
         </div>
     </div>
+
     <div class="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">
         <p class="text-sm text-white">
             © Copyright
@@ -421,8 +427,10 @@
             </a>
         </div>
     </div>
-</div>
+
 </footer>
+    </div>
+
 
 {{-- translate language --}}
 

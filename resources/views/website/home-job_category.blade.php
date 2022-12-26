@@ -2,7 +2,7 @@
     $job_categories = App\Models\Navigation::find(2471)->childs->take(6);
 @endphp
 
-<section class="text-gray-600 body-font">
+ <section class="text-gray-600 body-font">
     <div class="container px-4 py-6 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-8">
         <div class="flex flex-col text-center w-full mb-20">
             <h1 class="sm:text-4xl text-3xl font-bold title-font mb-4 text-gray-900">
@@ -37,4 +37,6 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> 
+
+

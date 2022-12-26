@@ -8,8 +8,22 @@
 .mision_section{
   padding: 100px 150px 100px 150px;
   background-color: #1E40AF;
+  display: flex;
+  justify-content: space-around;
+  /* width: 100%; */
+  overflow: hidden;
+} 
+.home_all{
+  overflow: hidden;
 }
-.col_data_info h1{
+
+
+.col_data_info{
+padding: 0px 20px 0px 20px;
+  /* overflow: hidden; */
+}
+
+.mision_section h1{
   font-size: 35px;
   display: flex;
   justify-content: center;
@@ -42,7 +56,14 @@ font-weight: 600;
 .services_container{
   height: 120px;
 }
-@media only screen and (max-width: 768px) {
+
+
+@media only screen and (max-width: 769px) {
+  .mision_section{
+    width: 100%;
+    display: block;
+    overflow: hidden;
+  }
   .mision_section{
    padding: 100px 0px 100px 0px;
   }
@@ -58,21 +79,13 @@ font-weight: 600;
   
  }
 .col_data_info p{
-  
   font-size: 15px;
-
 }
 .col_data_info button{
-
 padding:  7px 20px 7px 20px;
 margin-top: 25px;
 font-size: 15px;
-
-
 }
-
-
-
 }
 
 .apply_button{
@@ -82,3 +95,4 @@ font-size: 15px;
   border-radius: 5px;
   font-weight: 600;
 }
+
