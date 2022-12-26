@@ -18,6 +18,9 @@ class HomeController extends Controller
     public function index()
     {
 
+        $home_mission = Navigation::query()->orWhere('nav_name', 'LIKE', 'our-objectives')->orWhere('nav_name', 'LIKE', 'our-goals')->orWhere('nav_name', 'LIKE', 'mission&vision')->get();
+
+        //   return $home_mission;
 
         // $all_doc = Navigation::find(2546)->childs;
         // return $all_doc;
@@ -65,7 +68,7 @@ class HomeController extends Controller
         } else {
             $services = null;
         }
-     
+
 
         if (Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type', 'Group')->latest()->first() != null) {
             $partners_id = Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%partner%")->where('page_type', 'Group')->latest()->first()->id;
@@ -125,7 +128,7 @@ class HomeController extends Controller
         //sreturn $job_categories;
         $global_setting = GlobalSetting::all()->first();
         //return $missons;       
-        return view("website.index")->with(['testimonial' => $testimonial, 'statistics' => $statistics, 'partners' => $partners, 'jobs' => $jobs, 'banners' => $banners, 'about' => $About, 'menus' => $menus, 'global_setting' => $global_setting, 'sliders' => $sliders, 'missons' => $missons,  'message' => $message, 'process' => $process, 'services' => $services, 'job_destination' => $job_destination, 'notice_heading' => $notice_heading, 'all_doc'=> $all_doc]);
+        return view("website.index")->with(['testimonial' => $testimonial, 'statistics' => $statistics, 'partners' => $partners, 'jobs' => $jobs, 'banners' => $banners, 'about' => $About, 'menus' => $menus, 'global_setting' => $global_setting, 'sliders' => $sliders, 'missons' => $missons,  'message' => $message, 'process' => $process, 'services' => $services, 'job_destination' => $job_destination, 'notice_heading' => $notice_heading, 'all_doc' => $all_doc, 'home_mission' > $home_mission]);
     }
 
 

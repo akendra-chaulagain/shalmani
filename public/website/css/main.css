@@ -81,6 +81,7 @@ fieldset {
 
 textarea {
   resize: vertical;
+  
 }
 
 /* ==========================================================================
@@ -262,3 +263,10 @@ textarea {
 }
 
 
+.header_fb_icon i{
+  margin-top: 20px;
+}
+
+/* .header_top{
+  background-image:'https://cdn.pixabay.com/photo/2020/11/01/21/44/angel-5705040_640.jpg' !important ;
+} */

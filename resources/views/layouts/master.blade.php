@@ -1,6 +1,5 @@
 @php
     $global_setting = App\Models\GlobalSetting::all()->first();
-    
     $menus = App\Models\Navigation::query()
         ->where('nav_category', 'Main')
         ->where('page_type', '!=', 'Job')
@@ -28,7 +27,6 @@
     // jobs footer
     $footer_jobs = App\Models\Navigation::find(2471)->childs->take(3);
     $footer_company = App\Models\Navigation::find(2259)->childs->take(2);
-    
 @endphp
 
 
@@ -80,9 +78,12 @@
 
     <link rel="stylesheet" href="/website/css/normalize.css" />
     <link rel="stylesheet" href="/website/css/tailwind.css" />
+    <link rel="stylesheet" href="/website/css/style.css" />
 
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <!-- Animate Css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -110,7 +111,12 @@
                     Govt. License No: {{ $global_setting->phone_ne }}
                 </p>
             </div>
+
             <div class="flex-wrap inline-flex px-4 py-1 space-x-1 md:space-x-4">
+                <form action="" class="language-picker__form" style="margin-top: 10px">
+                    <div name="language-picker-select" id="google_element">
+                    </div>
+                </form>
                 <a href="#"
                     class="group hover:text-gray-300 cursor-pointer inline-flex items-center text-sm text-white">
                     <span
@@ -137,13 +143,19 @@
                             </path>
                         </svg></span>
                     <span class="hidden md:block">{{ $global_setting->site_email }}</span>
+                    <a class="header_fb_icon" target="_blank" href="{{ $global_setting->facebook ?? '#' }}">
+                        <i style="font-size:28px; margin-top:13px; color:white;" target="_blank"
+                            class="fa-brands fa-facebook" style="color: white; font-size:23px"></i>
+
+                    </a>
                 </a>
+
             </div>
         </div>
     </section>
 
-    {{-- <Navbar> --}}
-    <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 sticky top-0 z-20">
+
+    <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 sticky top-30 z-20">
         <div x-data="{ open: false }"
             class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
             <div class="flex flex-row items-center justify-between">
@@ -161,14 +173,8 @@
                 </button>
             </div>
 
-
-
-
-
             <nav :class="{ 'flex': open, 'hidden': !open }"
                 class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
-
-
                 <a class="uppercase px-2 font-semibold lg:px-3 py-6 text-sm border-b-2 border-transparent hover:border-blue-600 leading-[22px] md:px-3 text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:shadow-outline"
                     href="/">Home</a>
                 @foreach ($menus as $menu)
@@ -244,30 +250,31 @@
                         Job Opening
                     </a>
                 </div>
+
             </nav>
 
         </div>
     </div>
 
 
+
+    {{-- </div> --}}
+
+
+
     @yield('content')
 
 
 
-    <footer class="w-full dark-mode:text-gray-200 dark-mode:bg-gray-800 py-4 lg:py-6 bg-blue-800">
-        <div class="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-            <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
+    <footer class="w-full dark-mode:text-gray-200 dark-mode:bg-gray-800 py-4 lg:py- bg-blue-800">
+        <div class="px-4 pt-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+            <div class="grid gap-16 row-gap-10 mb-4 lg:grid-cols-6">
                 <div class="md:max-w-md lg:col-span-2">
                     <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
                         <img src="/uploads/icons/{{ $global_setting->site_logo }}" class="w-16" />
                         {{-- <span class="ml-2 text-xl font-bold tracking-wide text-white uppercase">Shalmani Overseas</span> --}}
                     </a>
-                    <div class="mt-4 lg:max-w-sm">
-                        <p class="text-sm text-white leading-6">
-                            {{ $global_setting->page_description }}
-                        </p>
 
-                    </div>
                 </div>
                 <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
 
@@ -408,14 +415,29 @@
                     </path>
                 </svg>
             </a>
-            <a href="{{ $global_setting->other ?? '#' }}">
-                <i target="_blank" class="fa-brands fa-youtube" style="color: white; font-size:23px"></i>
+            <a target="_blank" href="{{ $global_setting->other ?? '#' }}">
+                <i class="fa-brands fa-youtube" style="color: white; font-size:23px"></i>
 
             </a>
         </div>
     </div>
 </div>
 </footer>
+
+{{-- translate language --}}
+
+<script src="https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+
+
+
+<script>
+    function loadGoogleTranslate() {
+        new google.translate.TranslateElement({
+            // includedLanguages: 'en,ja'
+        }, "google_element")
+    }
+</script>
+
 
 
 

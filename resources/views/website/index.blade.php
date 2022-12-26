@@ -8,6 +8,8 @@
      @include('website.home-about')
      @include('website.home_mission')
      @include('website.home-job_category')
+     @include('website.home-job')
+
      @include('website.home-job-destination')
      @include('website.testomonials')
      @include('website.client')

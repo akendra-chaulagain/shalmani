@@ -67,13 +67,13 @@ $destination = App\Models\Navigation::find($slug_detail->id);
                                 <div class="job-detaile-item">
                                     <h1>{{ $job->caption }}</h1>
                                     <h5>Company : {{ $job->getJob->company_name ?? 'null' }}</h5>
-                                    <h5>Location : {{ $job->getJob->counrty ?? 'null' }}i</h5>
+                                    <h5>Location : {{ $job->getJob->country ?? 'null' }}i</h5>
 
                                 </div>
                                 <div class="job-detaile-item">
                                     <h5>Salary : {{ $job->getJob->salary ?? '' }}</h5>
                                     {{-- <h5>Contract : 2 Year(s)</h5> --}}
-                                    <button> <a href="/jobapply/{{ $job->nav_name }}">Apply Now</a></button>
+                                    <button class="apply_button"> <a href="/jobapply/{{ $job->nav_name }}">Apply Now</a></button>
                                 </div>
                             </div>
 

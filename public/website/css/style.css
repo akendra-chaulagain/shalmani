@@ -1,0 +1,57 @@
+/* .header_esction{
+ background-image:linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)),url(../header-bg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  clip-path: ellipse(100% 100% at 100% 20%);
+} */
+
+.mision_section{
+  padding: 100px 150px 100px 150px;
+  background-color: #1E40AF;
+}
+.col_data_info h1{
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: white;
+}
+.col_data_info p{
+  text-align: justify;
+  color: white;
+  font-size: 16px;
+
+}
+.col_data_info button{
+display: flex;
+color: white;
+border:  1px solid white;
+padding:  8px 23px 8px 23px;
+margin-top: 25px;
+border-radius: 10px;
+font-size: 16px;
+font-weight: 600;
+
+}
+.col_data_info button:hover{
+  background-color: white;
+  color: black;
+}
+
+@media only screen and (max-width: 768px) {
+  .mision_section{
+   padding: 100px 0px 100px 0px;
+  }
+ .col_data_info{
+      margin-bottom: 39px;
+ }
+}
+
+.apply_button{
+  border:  2px solid #1E40AF;
+  padding: 6px 13px 6px 13px;
+  margin-top: 15px;
+  border-radius: 5px;
+  font-weight: 600;
+}

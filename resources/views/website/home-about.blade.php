@@ -7,18 +7,16 @@
     <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div class="grid gap-10 lg:grid-cols-5">
             <div class="-mx-4 lg:pl-8 py-6">
-                <div class="side-menu">
+                <div class="side-menu" style="background-color: #041555;">
                     <ul>
-
-
-
                         @foreach ($all_doc as $all_doc_item)
                             @if ($all_doc_item->nav_name == 'sample-specimen')
                                 <li class="has-submenu">
-                                    <a href="#">{{ $all_doc_item->caption }}</a>
+                                    <a style="color: white" href="#">{{ $all_doc_item->caption }}</a>
                                     <ul>
                                         @foreach ($all_doc_item->childs as $item)
-                                            <li><a href="{{ route('doc_details', $item->nav_name) }}">-
+                                            <li><a style="color: white"
+                                                    href="{{ route('doc_details', $item->nav_name) }}">-
                                                     {{ $item->caption }}</a> </li>
                                         @endforeach
 
@@ -26,7 +24,7 @@
                                 </li>
                             @else
                                 <li>
-                                    <a
+                                    <a style="color: white"
                                         href="{{ route('doc_details', $all_doc_item->nav_name) }}">{{ $all_doc_item->caption }}</a>
                                 </li>
                             @endif
