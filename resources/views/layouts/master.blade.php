@@ -278,9 +278,12 @@
                     <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
                         <img src="/uploads/icons/{{ $global_setting->site_logo }}" class="w-16" />
                         {{-- <span class="ml-2 text-xl font-bold tracking-wide text-white uppercase">Shalmani Overseas</span> --}}
+                      
                     </a>
 
                 </div>
+
+                
                 <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
 
                     <div>
@@ -378,6 +381,11 @@
                         allowfullscreen width="100%" height="1000px"></iframe> --}}
 
                 </a>
+                  <div class="direction">
+                    {{-- <video src=""></video> --}}
+                    	<video class="video-slide" src="/website/video.mp4" autoplay muted loop></video>
+                        <p>Our Direction</p>
+                </div>
             </div>
 
 
